@@ -1,0 +1,84 @@
+<!-- selection.html -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Select Area</title>
+    <style>
+      body {
+        margin: 0;
+        cursor: crosshair;
+      }
+      .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.4);
+        cursor: crosshair;
+      }
+      .selection-box {
+        border: 2px dashed rgb(187, 211, 80);
+        position: absolute;
+        background: rgba(255, 255, 255, 0); /* Cambiado a transparente */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="overlay" id="overlay"></div>
+    <script>
+      const { ipcRenderer } = require('electron');
+
+      let startX, startY, selectionBox;
+
+      function createSelectionBox(x, y, width, height) {
+        if (selectionBox) {
+          selectionBox.remove();
+        }
+        selectionBox = document.createElement('div');
+        selectionBox.className = 'selection-box';
+        selectionBox.style.left = x + 'px';
+        selectionBox.style.top = y + 'px';
+        selectionBox.style.width = width + 'px';
+        selectionBox.style.height = height + 'px';
+        document.body.appendChild(selectionBox);
+      }
+
+      document.getElementById('overlay').addEventListener('mousedown', (e) => {
+        startX = e.clientX;
+        startY = e.clientY;
+        document.addEventListener('mousemove', onMouseMove);
+        document.addEventListener('mouseup', onMouseUp);
+      });
+
+      function onMouseMove(e) {
+        const width = e.clientX - startX;
+        const height = e.clientY - startY;
+        createSelectionBox(startX, startY, width, height);
+      }
+
+      function onMouseUp(e) {
+        document.removeEventListener('mousemove', onMouseMove);
+        document.removeEventListener('mouseup', onMouseUp);
+
+        // Calcula la selección
+        const x = Math.min(startX, e.clientX);
+        const y = Math.min(startY, e.clientY);
+        const width = Math.abs(e.clientX - startX);
+        const height = Math.abs(e.clientY - startY);
+
+        // Verifica que los valores sean positivos y que no excedan los límites de la pantalla
+        const positiveWidth = Math.max(0, width);
+        const positiveHeight = Math.max(0, height);
+
+        console.log(`Selection made: x=${x}, y=${y}, width=${positiveWidth}, height=${positiveHeight}`);
+        ipcRenderer.send('selection-made', {
+          x,
+          y,
+          width: positiveWidth,
+          height: positiveHeight
+        });
+      }
+    </script>
+  </body>
+</html>

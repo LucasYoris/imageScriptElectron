@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image to Text</title>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h3>Texto Extraído</h3>
+      <div id="output">Texto aparecerá aquí...</div>
+
+      <h3>Imagen capturada</h3>
+      <img id="screenshot-image" src="../images/blank.png" alt="Screenshot will appear here" />
+
+      <div class="button-container">
+        <button id="capture-btn" class="button-primary">Capturar Pantalla</button>
+        <button id="convert-btn" class="button-secondary">Convertir a Texto</button>
+      </div>
+    </div>
+
+    <script src="../renderer.js"></script>
+  </body>
+</html>

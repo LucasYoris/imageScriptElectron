@@ -1,0 +1,60 @@
+{
+  "name": "image-to-text",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "build": {
+    "appId": "com.infinite.image-to-text",
+    "asar": false,
+    "productName": "ImageToText",
+    "copyright": "Copyright © 2018 Infinite InfoSystem",
+    "buildDependenciesFromSource": true,
+    "win": {
+      "publisherName": "Infinite InfoSystem",
+      "target": "nsis",
+      "icon": "src/images/infiniteLogo.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": true,
+      "allowElevation": true,
+      "allowToChangeInstallationDirectory": true
+    },
+    "extraResources": [
+      {
+        "from": "node_modules/tesseract.js-core/tessdata",
+        "to": "tessdata",
+        "filter": [
+          "**/*"
+        ]
+      },
+      {
+        "from": "node_modules/tesseract.js-core/tessdata",
+        "to": "resources/app.asar/tessdata",
+        "filter": [
+          "**/*"
+        ]
+      }
+    ]
+  },
+  "scripts": {
+    "start": "cross-env NODE_ENV=dev electron src/index.js",
+    "package": "cross-env NODE_ENV=production electron-builder --win",
+    "build": "cross-env NODE_ENV=production electron-builder"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "clipboardy": "^4.0.0",
+    "copy-image-clipboard": "^2.1.2",
+    "electron-reload": "^2.0.0-alpha.1",
+    "img-clipboard": "^1.1.0",
+    "tesseract.js": "^5.1.1"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "electron": "^32.0.2",
+    "electron-builder": "^24.4.0",
+    "electron-packager": "^17.1.2"
+  }
+}
