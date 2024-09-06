@@ -4,7 +4,9 @@
 
 Este proyecto es una aplicación de escritorio construida con Electron. Permite capturar una selección de pantalla y convertir la imagen capturada a texto utilizando Tesseract.js. La aplicación ofrece opciones para copiar el texto al portapapeles, así como guardar imágenes y texto en archivos.
 
-<img src="./src/images/image.png" alt="Descripción de la imagen" width="500" height="400"/>
+<div style="text-align: center;">
+   <img src="./src/images/image.png" alt="Descripción de la imagen" width="500" height="400"/>
+</div>
 
 ## Instalación
 
@@ -20,6 +22,7 @@ Para instalar las dependencias y ejecutar la aplicación, sigue estos pasos:
    ```
 
 # Dependencias
+
 ## Dependencias de Producción
 
 - **clipboardy:** Permite manipular el portapapeles en la aplicación, facilitando la copia de texto al portapapeles.
@@ -29,24 +32,30 @@ Para instalar las dependencias y ejecutar la aplicación, sigue estos pasos:
 - **tesseract.js:** Biblioteca para el reconocimiento óptico de caracteres (OCR) que convierte imágenes en texto.
 
 ## Dependencias de Desarrollo
+
 - **cross-env:** Permite establecer variables de entorno en scripts de npm de forma compatible entre diferentes sistemas operativos.
 - **electron:** Framework para construir aplicaciones de escritorio con tecnologías web (HTML, CSS y JavaScript).
 - **electron-builder:** Herramienta para empaquetar y construir la aplicación para su distribución.
 - **electron-packager:** Herramienta para empaquetar la aplicación Electron en diferentes plataformas (Windows, macOS, Linux).
 
 ## Uso
+
 Para ejecutar la aplicación en modo desarrollo, usa el siguiente comando:
+
 ```bash
 npm start
 ```
 
 Para construir la aplicación para su distribución, utiliza:
+
 ```bash
 npm run build
 ```
 
 ## Contribuciones
+
 Las contribuciones son bienvenidas. Por favor, abre un issue o envía un pull request para colaborar.
 
 ## Licencia
+
 Este proyecto está licenciado bajo la Licencia MIT.
