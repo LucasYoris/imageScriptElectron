@@ -4,7 +4,7 @@
 
 Este proyecto es una aplicación de escritorio construida con Electron. Permite capturar una selección de pantalla y convertir la imagen capturada a texto utilizando Tesseract.js. La aplicación ofrece opciones para copiar el texto al portapapeles, así como guardar imágenes y texto en archivos.
 
-<img src="./src/images/image.png" alt="Descripción de la imagen" width="300" height="200"/>
+<img src="./src/images/image.png" alt="Descripción de la imagen" width="150" height="100"/>
 
 ## Instalación
 
