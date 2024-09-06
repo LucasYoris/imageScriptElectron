@@ -30,7 +30,7 @@ if (process.env.NODE_ENV === undefined) {
 }
 const templateMenu = [
   {
-    label: 'file',
+    label: 'Actions',
     submenu: [
       {
         label: 'Convert to text',
