@@ -22,13 +22,6 @@
     "extraResources": [
       {
         "from": "node_modules/tesseract.js-core/tessdata",
-        "to": "tessdata",
-        "filter": [
-          "**/*"
-        ]
-      },
-      {
-        "from": "node_modules/tesseract.js-core/tessdata",
         "to": "resources/app.asar/tessdata",
         "filter": [
           "**/*"
