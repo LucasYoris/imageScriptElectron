@@ -10,8 +10,7 @@ Para instalar las dependencias y ejecutar la aplicación, sigue estos pasos:
 
 1. **Clona el repositorio:**
    ```bash
-   git clone https://github.com/tu_usuario/tu_repositorio.git
-   cd tu_repositorio
+   git clone https://github.com/LucasYoris/imageScriptElectron
    ```
 2. **Instala las dependencias:**
    ```bash
